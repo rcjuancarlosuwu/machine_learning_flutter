@@ -1,0 +1,2 @@
+0 SANO
+1 ENFERMO

@@ -1,0 +1,5 @@
+0 10 Soles
+1 20 Soles
+2 50 Soles
+3 100 Soles
+4 200 Soles

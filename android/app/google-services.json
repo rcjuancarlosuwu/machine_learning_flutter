@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "480980269784",
+    "firebase_url": "https://machine-learning-es-facil.firebaseio.com",
+    "project_id": "machine-learning-es-facil",
+    "storage_bucket": "machine-learning-es-facil.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:480980269784:android:8da0e801cf3539faab35ad",
+        "android_client_info": {
+          "package_name": "com.fis.machine_learning"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "480980269784-dmp8b7mj31gumlatsnq2f50akih062fl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD3WxTbyQk4zKi8Am-BCIOgu-UPZbgE6JQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "480980269784-dmp8b7mj31gumlatsnq2f50akih062fl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

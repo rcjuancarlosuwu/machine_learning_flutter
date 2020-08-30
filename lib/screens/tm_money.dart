@@ -1,7 +1,9 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:machine_learning/screens/details.dart';
+import 'package:soundpool/soundpool.dart';
 import 'package:tflite/tflite.dart';
 import 'package:machine_learning/util/info.dart';
 
@@ -14,14 +16,24 @@ class _TMMoneyState extends State<TMMoney> {
   List _outputs;
   File _image;
   bool _loading = false;
+  Soundpool pool = Soundpool(streamType: StreamType.notification);
+  int ten;
+
+  Future<void> loadAudios() async {
+    this.ten =
+        await rootBundle.load("sounds/10.mp3").then((ByteData soundData) {
+      return pool.load(soundData);
+    });
+  }
 
   @override
-  void initState() {
+  void initState() async {
     super.initState();
     _loading = true;
     loadModel().then((value) {
       setState(() => _loading = false);
     });
+    loadAudios();
   }
 
   @override
@@ -152,7 +164,19 @@ class _TMMoneyState extends State<TMMoney> {
       _loading = false;
       _outputs = output;
     });
-    print(output);
+    switch (output[0]["label"]) {
+      case "0 10 Soles":
+        int streamId = await pool.play(ten);
+        break;
+      case "1 20 Soles":
+        break;
+      case "2 50 Soles":
+        break;
+      case "3 100 Soles":
+        break;
+      case "4 200 Soles":
+        break;
+    }
   }
 
   loadModel() async {

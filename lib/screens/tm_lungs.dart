@@ -4,6 +4,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:machine_learning/screens/details.dart';
 import 'package:tflite/tflite.dart';
 import 'package:machine_learning/util/info.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class TMLungs extends StatefulWidget {
   @override
@@ -31,14 +32,18 @@ class _TMLungsState extends State<TMLungs> {
         title: Text('Test Pulmones'),
         actions: [
           IconButton(
-            icon: Icon(Icons.help_outline),
-            onPressed: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => HowToDoIt(option: teacheable[0])));
-            },
-          ),
+              icon: Image.asset(
+                "assets/images/github_logo.png",
+              ),
+              onPressed: () async {
+                const url =
+                    'https://github.com/JuanCarlosRC/machine_learning_flutter/blob/master/lib/screens/tm_lungs.dart';
+                if (await canLaunch(url)) {
+                  await launch(url);
+                } else {
+                  throw 'Could not launch $url';
+                }
+              }),
         ],
       ),
       body: _loading

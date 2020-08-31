@@ -8,6 +8,8 @@ import 'package:tflite/tflite.dart';
 import 'package:machine_learning/util/info.dart';
 
 class TMMoney extends StatefulWidget {
+  final bool directly;
+  TMMoney({this.directly});
   @override
   _TMMoneyState createState() => _TMMoneyState();
 }
@@ -17,23 +19,17 @@ class _TMMoneyState extends State<TMMoney> {
   File _image;
   bool _loading = false;
   Soundpool pool = Soundpool(streamType: StreamType.notification);
-  int ten;
-
-  Future<void> loadAudios() async {
-    this.ten =
-        await rootBundle.load("sounds/10.mp3").then((ByteData soundData) {
-      return pool.load(soundData);
-    });
-  }
 
   @override
-  void initState() async {
+  void initState() {
     super.initState();
     _loading = true;
     loadModel().then((value) {
       setState(() => _loading = false);
     });
-    loadAudios();
+    if (widget.directly == null)
+      return;
+    else if (widget.directly == true) shootImage();
   }
 
   @override
@@ -166,15 +162,49 @@ class _TMMoneyState extends State<TMMoney> {
     });
     switch (output[0]["label"]) {
       case "0 10 Soles":
-        int streamId = await pool.play(ten);
+        int ten = await rootBundle
+            .load("assets/sounds/10.mp3")
+            .then((ByteData soundData) {
+          return pool.load(soundData);
+        });
+        await pool.play(ten);
+        pool.setVolume(soundId: ten, volume: 1);
         break;
       case "1 20 Soles":
+        int ten = await rootBundle
+            .load("assets/sounds/10.mp3")
+            .then((ByteData soundData) {
+          return pool.load(soundData);
+        });
+        await pool.play(ten);
+        pool.setVolume(soundId: ten, volume: 1);
         break;
       case "2 50 Soles":
+        int ten = await rootBundle
+            .load("assets/sounds/50.mp3")
+            .then((ByteData soundData) {
+          return pool.load(soundData);
+        });
+        await pool.play(ten);
+        pool.setVolume(soundId: ten, volume: 1);
         break;
       case "3 100 Soles":
+        int ten = await rootBundle
+            .load("assets/sounds/100.mp3")
+            .then((ByteData soundData) {
+          return pool.load(soundData);
+        });
+        await pool.play(ten);
+        pool.setVolume(soundId: ten, volume: 1);
         break;
       case "4 200 Soles":
+        int ten = await rootBundle
+            .load("assets/sounds/200.mp3")
+            .then((ByteData soundData) {
+          return pool.load(soundData);
+        });
+        await pool.play(ten);
+        pool.setVolume(soundId: ten, volume: 1);
         break;
     }
   }

@@ -30,6 +30,7 @@ dependencies:
   tflite: ^1.1.1
   image_picker: ^0.6.7+6
   soundpool: ^1.1.1
+  gestures: ^0.0.1
 
 dev_dependencies:
   flutter_test:

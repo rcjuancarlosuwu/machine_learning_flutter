@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:gestures/gestures.dart';
 import 'package:machine_learning/screens/credits.dart';
 import 'package:machine_learning/screens/home.dart';
+import 'package:machine_learning/screens/tm_money.dart';
 import 'package:machine_learning/widgets/custom_appbar.dart';
 import 'package:machine_learning/widgets/custom_bottombar.dart';
 
@@ -18,7 +20,28 @@ class MainFrameState extends State<MainFrame> {
       appBar: CustomAppBar(),
       backgroundColor: Theme.of(context).primaryColor,
       endDrawer: getDrawer(context), // Drawer
-      body: _getDrawerItemWidget(_selectedDrawerIndex),
+      body: CustomGestureDetector(
+        child: _getDrawerItemWidget(_selectedDrawerIndex),
+        gestures: [
+          GestureLine(AxisDirection.right),
+        ],
+        onGestureEnd: (success) {
+          if (success) {
+            print("yes");
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (BuildContext context) {
+                  return TMMoney(
+                    directly: true,
+                  );
+                },
+              ),
+            );
+          } else {
+            print("no");
+          }
+        },
+      ),
       bottomNavigationBar: BottomBar(),
     );
   }

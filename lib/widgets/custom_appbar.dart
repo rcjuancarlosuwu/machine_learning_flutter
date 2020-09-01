@@ -42,13 +42,13 @@ class CustomAppBarState extends State<CustomAppBar> {
               children: <Widget>[
                 Padding(
                   child: Image.asset('assets/images/applogo.png'),
-                  padding: EdgeInsets.fromLTRB(24, 8, 24, 8),
+                  padding: EdgeInsets.fromLTRB(24, 8, 0, 8),
                 ),
                 Padding(
-                  child: Text("Easy Machine Learning",
+                  child: Text("Machine Learning es fácil",
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
-                          fontSize: 20,
+                          fontSize: 17,
                           color: Theme.of(context).indicatorColor)),
                   padding: EdgeInsets.fromLTRB(24, 8, 24, 8),
                 ),

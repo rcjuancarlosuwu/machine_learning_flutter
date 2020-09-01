@@ -10,19 +10,25 @@ class TMLungs extends StatefulWidget {
 }
 
 class _TMLungsState extends State<TMLungs> {
+  // Lista de resultados del analisis del modelo
   List _outputs;
+  // La imagen a analizar
   File _image;
+  // Animación de carga
   bool _loading = false;
 
+  // Estado inicial de la aplicación
   @override
   void initState() {
     super.initState();
     _loading = true;
+    // cargamos los modelos
     loadModel().then((value) {
       setState(() => _loading = false);
     });
   }
 
+  // Scaffold del interfaz
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -123,6 +129,7 @@ class _TMLungsState extends State<TMLungs> {
     );
   }
 
+  // Escoger una imagen desde galería
   pickImage() async {
     var image = await ImagePicker.pickImage(source: ImageSource.gallery);
     if (image == null) return null;
@@ -133,6 +140,7 @@ class _TMLungsState extends State<TMLungs> {
     classifyImage(image);
   }
 
+  // Tomar una foto
   shootImage() async {
     var image = await ImagePicker.pickImage(source: ImageSource.camera);
     if (image == null) return null;
@@ -143,6 +151,7 @@ class _TMLungsState extends State<TMLungs> {
     classifyImage(image);
   }
 
+  // Analizar la imagen
   classifyImage(File image) async {
     var output = await Tflite.runModelOnImage(
       path: image.path,
@@ -155,9 +164,9 @@ class _TMLungsState extends State<TMLungs> {
       _loading = false;
       _outputs = output;
     });
-    print(output);
   }
 
+  // Cargar modelo
   loadModel() async {
     await Tflite.loadModel(
       model: "assets/models/tflite_lungs_model.tflite",
@@ -165,6 +174,7 @@ class _TMLungsState extends State<TMLungs> {
     );
   }
 
+  // Estado en reposo de la aplicacion
   @override
   void dispose() {
     Tflite.close();

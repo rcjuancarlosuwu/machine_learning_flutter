@@ -14,23 +14,31 @@ class TMMoney extends StatefulWidget {
 }
 
 class _TMMoneyState extends State<TMMoney> {
+  // Lista de resultados del analisis del modelo
   List _outputs;
+  // La imagen a analizar
   File _image;
+  // Animación de carga
   bool _loading = false;
+  // Motor de audio
   Soundpool pool = Soundpool(streamType: StreamType.notification);
 
+  // Estado inicial de la aplicación
   @override
   void initState() {
     super.initState();
     _loading = true;
+    // cargamos los modelos
     loadModel().then((value) {
       setState(() => _loading = false);
     });
+    // Gesto de acceso directo
     if (widget.directly == null)
       return;
     else if (widget.directly == true) shootImage();
   }
 
+  // Scaffold del interfaz
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -131,6 +139,7 @@ class _TMMoneyState extends State<TMMoney> {
     );
   }
 
+  // Escoger una imagen desde galería
   pickImage() async {
     var image = await ImagePicker.pickImage(source: ImageSource.gallery);
     if (image == null) return null;
@@ -141,6 +150,7 @@ class _TMMoneyState extends State<TMMoney> {
     classifyImage(image);
   }
 
+  // Tomar una foto
   shootImage() async {
     var image = await ImagePicker.pickImage(source: ImageSource.camera);
     if (image == null) return null;
@@ -151,13 +161,12 @@ class _TMMoneyState extends State<TMMoney> {
     classifyImage(image);
   }
 
+  // Analizar la imagen
   classifyImage(File image) async {
     var output = await Tflite.runModelOnImage(
       path: image.path,
-      numResults: 2,
+      numResults: 5,
       threshold: 0.5,
-      imageMean: 127.5,
-      imageStd: 127.5,
     );
     setState(() {
       _loading = false;
@@ -174,44 +183,45 @@ class _TMMoneyState extends State<TMMoney> {
         pool.setVolume(soundId: ten, volume: 1);
         break;
       case "1 20 Soles":
-        int ten = await rootBundle
-            .load("assets/sounds/10.mp3")
+        int twenty = await rootBundle
+            .load("assets/sounds/20.mp3")
             .then((ByteData soundData) {
           return pool.load(soundData);
         });
-        await pool.play(ten);
-        pool.setVolume(soundId: ten, volume: 1);
+        await pool.play(twenty);
+        pool.setVolume(soundId: twenty, volume: 1);
         break;
       case "2 50 Soles":
-        int ten = await rootBundle
+        int fifty = await rootBundle
             .load("assets/sounds/50.mp3")
             .then((ByteData soundData) {
           return pool.load(soundData);
         });
-        await pool.play(ten);
-        pool.setVolume(soundId: ten, volume: 1);
+        await pool.play(fifty);
+        pool.setVolume(soundId: fifty, volume: 1);
         break;
       case "3 100 Soles":
-        int ten = await rootBundle
+        int one_hundred = await rootBundle
             .load("assets/sounds/100.mp3")
             .then((ByteData soundData) {
           return pool.load(soundData);
         });
-        await pool.play(ten);
-        pool.setVolume(soundId: ten, volume: 1);
+        await pool.play(one_hundred);
+        pool.setVolume(soundId: one_hundred, volume: 1);
         break;
       case "4 200 Soles":
-        int ten = await rootBundle
+        int two_hundred = await rootBundle
             .load("assets/sounds/200.mp3")
             .then((ByteData soundData) {
           return pool.load(soundData);
         });
-        await pool.play(ten);
-        pool.setVolume(soundId: ten, volume: 1);
+        await pool.play(two_hundred);
+        pool.setVolume(soundId: two_hundred, volume: 1);
         break;
     }
   }
 
+  // Cargar modelo
   loadModel() async {
     await Tflite.loadModel(
       model: "assets/models/tflite_money_model.tflite",
@@ -219,6 +229,7 @@ class _TMMoneyState extends State<TMMoney> {
     );
   }
 
+  // Estado en reposo de la aplicacion
   @override
   void dispose() {
     Tflite.close();

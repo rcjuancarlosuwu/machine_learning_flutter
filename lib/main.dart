@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:machine_learning/screens/main_frame.dart';
 import 'package:machine_learning/util/const.dart';
 
+// EL metodo principal de la aplicacion
 void main() async => runApp(MyApp());
 
 class MyApp extends StatefulWidget {

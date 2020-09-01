@@ -27,7 +27,6 @@ class MainFrameState extends State<MainFrame> {
         ],
         onGestureEnd: (success) {
           if (success) {
-            print("yes");
             Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (BuildContext context) {
@@ -37,8 +36,6 @@ class MainFrameState extends State<MainFrame> {
                 },
               ),
             );
-          } else {
-            print("no");
           }
         },
       ),

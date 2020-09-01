@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:machine_learning/util/const.dart';
+import 'package:machine_learning/widgets/popup.dart';
 
 class Credits extends StatelessWidget {
   @override
@@ -63,12 +64,37 @@ class Credits extends StatelessWidget {
           ),
         ],
       ),
-      // floatingActionButton: FloatingActionButton(
-      //   child: Icon(
-      //     Icons.airplanemode_active,
-      //   ),
-      //   onPressed: () {},
-      // ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(
+          Icons.supervisor_account,
+        ),
+        onPressed: () {
+          Navigator.push(
+              context,
+              PopUp(
+                  header: "Créditos de los recursos",
+                  subheader: "Personas que nos apoyaron:",
+                  content: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      SizedBox(
+                        height: 50,
+                      ),
+                      Text(
+                        "- \n"
+                                "- \n"
+                                "- \n"
+                                "- \n" +
+                            "",
+                      ),
+                      SizedBox(
+                        height: 50,
+                      ),
+                    ],
+                  )));
+        },
+      ),
     );
   }
 

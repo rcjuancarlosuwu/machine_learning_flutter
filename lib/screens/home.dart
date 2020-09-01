@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:machine_learning/util/info.dart';
-import 'package:machine_learning/widgets/horizontal_place_item.dart';
 import 'package:machine_learning/widgets/vertical_place_item.dart';
 
 class Home extends StatelessWidget {
@@ -18,17 +17,6 @@ class Home extends StatelessWidget {
             ),
           ),
         ),
-        // Padding(
-        //   padding: EdgeInsets.all(20.0),
-        //   child: Text(
-        //     "Firebase Vision",
-        //     style: TextStyle(
-        //       fontSize: 15.0,
-        //       fontWeight: FontWeight.w600,
-        //     ),
-        //   ),
-        // ),
-        // buildHorizontalList(context),
         Padding(
           padding: EdgeInsets.all(20.0),
           child: Text(
@@ -41,23 +29,6 @@ class Home extends StatelessWidget {
         ),
         buildVerticalList(),
       ],
-    );
-  }
-
-  buildHorizontalList(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.only(top: 10.0, left: 20.0),
-      height: 260.0,
-      width: MediaQuery.of(context).size.width,
-      child: ListView.builder(
-        scrollDirection: Axis.horizontal,
-        primary: false,
-        itemCount: firebase == null ? 0.0 : firebase.length,
-        itemBuilder: (BuildContext context, int index) {
-          Map option = firebase[index];
-          return HorizontalPlaceItem(option: option);
-        },
-      ),
     );
   }
 

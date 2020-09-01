@@ -1,19 +1,5 @@
-import 'package:machine_learning/screens/facevision_firebase.dart';
 import 'package:machine_learning/screens/tm_lungs.dart';
 import 'package:machine_learning/screens/tm_money.dart';
-
-List firebase = [
-  {
-    "title": "Face Vision",
-    "images": ["assets/images/firebase_vision.png", "assets/images/lungs.png"],
-    "subtitle": "Detecta Rostros",
-    "powered": "Powered by: Firebase Machine Learning",
-    "powered_logo": "assets/images/mlkit_logo.png",
-    "details": "Este tipo de machine ...",
-    "code_link": "github.com",
-    "widget": FaceVision()
-  },
-];
 
 List teacheable = [
   {

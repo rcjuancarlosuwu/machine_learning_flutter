@@ -52,8 +52,6 @@ class MainFrameState extends State<MainFrame> {
       case 1:
         return Home();
       case 2:
-        return Home();
-      case 3:
         return Credits();
     }
   }
@@ -73,8 +71,7 @@ class MainFrameState extends State<MainFrame> {
                   curve: Curves.fastLinearToSlowEaseIn,
                 ),
                 drawerOption(1, "Inicio"),
-                // drawerOption(2, "Configuraciones"),
-                drawerOption(3, "Créditos"),
+                drawerOption(2, "Créditos"),
               ],
             ),
           ),

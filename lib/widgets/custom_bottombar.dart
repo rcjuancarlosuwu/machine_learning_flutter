@@ -30,7 +30,7 @@ class BottomBarState extends State<BottomBar> {
               children: <Widget>[
                 InkWell(
                   child: Text(
-                    "¿Necesitas Ayuda?",
+                    "¿Quieres ver el código fuente?",
                     style: TextStyle(color: Theme.of(context).indicatorColor),
                     textAlign: TextAlign.center,
                   ),
@@ -38,10 +38,18 @@ class BottomBarState extends State<BottomBar> {
                     Navigator.push(
                         context,
                         PopUp(
-                            header: "Ayuda",
+                            header: "Recursos",
                             subheader: "",
-                            content: Center(
-                              child: Text("."),
+                            content: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Image.asset(
+                                  "assets/images/github_logo.png",
+                                ),
+                                Text(
+                                    "Todo el código se encuentra en nuestro repositorio, cada parte fundamental se encuentra documentado."),
+                              ],
                             )));
                   },
                 ),

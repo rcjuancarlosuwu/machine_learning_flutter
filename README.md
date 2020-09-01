@@ -1,16 +1,10 @@
-# machine_learning
+# Facultad de Ingeniería de Sistemas
 
-A new Flutter project.
+Machine Learning es fácil.
 
-## Getting Started
+## Resume
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+En el presente trabajo de investigación se plantea la problemática de que existe desmotivación en los estudiantes al momento de utilizar el Machine Learning en sus proyectos, ya que se considera que el manejo de esta ciencia es complejo.
+El objetivo de esta investigación es buscar una manera con la cual se demuestre que el uso del Machine Learning es sencilla, además de mostrar las herramientas que nos ayudaran en este proceso, para ello se recolecto los datos a través de encuestas para saber cuál es la impresión de los estudiantes con respecto al tema y tener una idea general, luego se procedió al desarrollo de la aplicación.
+La pregunta de investigación se responde a través la difusión de la aplicación, además de también dar a conocer las herramientas utilizadas. Los resultados muestran que, a partir del uso de estas herramientas, los estudiantes se interesan más en involucrarse con el Machine Learning.
+A partir de estos resultados, se pueden extraer recomendaciones para realizar otras investigaciones para determinar los avances de esta investigación.
